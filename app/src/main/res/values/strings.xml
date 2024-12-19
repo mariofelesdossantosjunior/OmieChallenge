@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">OmieChallenge</string>
+    <string name="message_failure">Falha ao buscar os pedidos</string>
+    <string name="message_failure_add_order">Falha ao adicionar pedido</string>
+    <string name="title_sales">Vendas</string>
+    <string name="new_order">Novo pedido</string>
+    <string name="client">Cliente</string>
+    <string name="product_name">Nome produto</string>
+    <string name="quantity">Quantidade</string>
+    <string name="unit_value">Valor Unitário</string>
+    <string name="total_item">Valor Total</string>
+    <string name="save">Salvar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="add">Adicionar</string>
+</resources>

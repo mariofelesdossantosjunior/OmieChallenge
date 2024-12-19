@@ -1,0 +1,25 @@
+package com.mario.omiechallenge.presentation.screen.components.orders
+
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+import com.mario.omiechallenge.data.datasource.fakeOrders
+import com.mario.omiechallenge.domain.model.Order
+
+@Composable
+fun OmieOrderList(orders: List<Order>) {
+    LazyColumn {
+        items(orders) { order ->
+            OmieOrderCardItem(order = order)
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun OmieOrderListPreview() {
+    OmieOrderList(
+        orders = fakeOrders
+    )
+}
