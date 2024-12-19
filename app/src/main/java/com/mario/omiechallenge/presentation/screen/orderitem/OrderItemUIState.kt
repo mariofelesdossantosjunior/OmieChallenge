@@ -15,5 +15,7 @@ data class OrderItemUIState(
     val isLoading: Boolean = false,
     val isFailure: Boolean = false,
 ) {
+    val isValid: Boolean get() = client.isNotBlank() && items.isNotEmpty()
+
     val total: Double get() = items.sumOf { it.total }
 }

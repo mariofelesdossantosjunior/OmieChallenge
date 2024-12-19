@@ -6,7 +6,7 @@ import java.util.Date
 
 val fakeOrders = listOf(
     Order(
-        id = "123",
+        id = "123456789",
         date = Date(),
         clientName = "Mario",
         items = listOf(
@@ -27,7 +27,7 @@ val fakeOrders = listOf(
         )
     ),
     Order(
-        id = "345",
+        id = "3456789",
         date = Date(),
         clientName = "Jose",
         items = listOf(

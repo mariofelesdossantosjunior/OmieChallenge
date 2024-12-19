@@ -170,23 +170,13 @@ class OrderItemViewModel(
         val clientName = _uiState.value.client
         val items = _uiState.value.items
 
-        if (clientName.isNotBlank() && items.isNotEmpty()) {
-
-            val params = AddOrderUseCase.Params(
-                order = Order(
-                    clientName = clientName,
-                    items = items
-                )
+        val params = AddOrderUseCase.Params(
+            order = Order(
+                clientName = clientName,
+                items = items
             )
-            addOrderUseCase.invoke(params)
-
-        } else {
-            _uiState.update {
-                it.copy(
-                    clientError = "Digite o nome do cliente"
-                )
-            }
-        }
+        )
+        addOrderUseCase.invoke(params)
     }
 
     @VisibleForTesting

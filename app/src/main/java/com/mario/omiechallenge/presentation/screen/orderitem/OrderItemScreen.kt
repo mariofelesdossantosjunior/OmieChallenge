@@ -1,7 +1,11 @@
 package com.mario.omiechallenge.presentation.screen.orderitem
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -11,11 +15,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.mario.omiechallenge.R
 import com.mario.omiechallenge.data.datasource.fakeOrderItems
 import com.mario.omiechallenge.presentation.screen.core.composables.topbar.OmieTopBar
 import com.mario.omiechallenge.presentation.screen.orderitem.composables.FormInputValueItem
 import com.mario.omiechallenge.presentation.screen.orderitem.composables.OmieBottomBarOrderItems
+import com.mario.omiechallenge.presentation.screen.orderitem.composables.OmieOrderItemsList
+import com.mario.omiechallenge.presentation.screen.theme.Colors
 
 @Composable
 fun OrderItemScreen(
@@ -45,11 +52,27 @@ fun OrderItemScreen(
             SnackbarHost(hostState = snackBarHostState)
         },
         content = { paddingValues ->
-            FormInputValueItem(
-                modifier = Modifier.padding(paddingValues),
-                uiState = uiState,
-                onEvent = onEvent
-            )
+            Column(
+                modifier = Modifier.padding(paddingValues)
+            ) {
+                FormInputValueItem(
+                    uiState = uiState,
+                    onEvent = onEvent
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+                HorizontalDivider(color = Colors.Gray300)
+                Spacer(modifier = Modifier.height(8.dp))
+
+                OmieOrderItemsList(
+                    items = uiState.items,
+                    onDeleteItem = {
+                        onEvent(
+                            OrderItemUIEvent.OnDeleteItem(it)
+                        )
+                    }
+                )
+            }
         },
         bottomBar = {
             OmieBottomBarOrderItems(

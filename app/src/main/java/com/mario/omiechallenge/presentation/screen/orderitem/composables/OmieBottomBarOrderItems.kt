@@ -60,6 +60,7 @@ fun OmieBottomBarOrderItems(
 
             OmieButton(
                 modifier = Modifier.weight(1f),
+                enabled = uiState.isValid,
                 text = stringResource(R.string.save),
                 color = Colors.GreenDark,
                 onClick = {

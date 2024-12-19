@@ -9,6 +9,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -30,25 +31,35 @@ fun OmieOrderCardItem(order: Order) {
         )
     ) {
         Column(
-            modifier = Modifier.padding(16.dp)
+            Modifier.padding(16.dp)
         ) {
-            Text(
-                text = "Id: #${order.id.substring(0, 5)}",
-                style = MaterialTheme.typography.titleSmall
-            )
-            Text(
-                text = "Cliente: ${order.clientName}",
-                style = MaterialTheme.typography.titleMedium,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis
-            )
             Row {
                 Text(
-                    text = order.total.formatedToReal(),
+                    modifier = Modifier.weight(1f),
+                    text = "Pedido #${order.id.substring(0, 3)}",
+                    style = MaterialTheme.typography.titleSmall
+                )
+
+                Text(
+                    modifier = Modifier.weight(1f),
+                    textAlign = TextAlign.End,
+                    text = "Total: ${order.total.formatedToReal()}",
                     style = MaterialTheme.typography.labelSmall
                 )
+            }
+            Row {
                 Text(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.weight(1f),
+                    text = "Cliente: ${order.clientName}",
+                    style = MaterialTheme.typography.titleMedium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+
+                Text(
+                    modifier = Modifier
+                        .weight(1f)
+                        .align(Alignment.Bottom),
                     textAlign = TextAlign.End,
                     text = order.date.formatedDate(),
                     style = MaterialTheme.typography.labelSmall

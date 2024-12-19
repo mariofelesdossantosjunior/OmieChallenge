@@ -110,19 +110,6 @@ fun FormInputValueItem(
                 focusRequester.requestFocus()
             }
         )
-
-        Spacer(modifier = Modifier.height(8.dp))
-        HorizontalDivider(color = Colors.Gray300)
-        Spacer(modifier = Modifier.height(8.dp))
-
-        OmieOrderItemsList(
-            items = uiState.items,
-            onDeleteItem = {
-                onEvent(
-                    OrderItemUIEvent.OnDeleteItem(it)
-                )
-            }
-        )
     }
 }
 

@@ -39,7 +39,7 @@ fun OmieOrderItemCard(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(
-                modifier = Modifier.weight(3f)
+                modifier = Modifier.weight(4f)
             ) {
                 Text(
                     text = item.name,
@@ -72,6 +72,7 @@ fun OmieOrderItemCard(
                 modifier = Modifier.weight(1f)
             ) {
                 OmieButtonDeleteItem(
+                    modifier = Modifier.align(Alignment.End),
                     onClick = onDeleteItem
                 )
             }
