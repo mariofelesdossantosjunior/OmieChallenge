@@ -1,4 +1,4 @@
-package com.mario.omiechallenge.presentation.screen.components.orders
+package com.mario.omiechallenge.presentation.screen.order.composables
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -33,7 +33,7 @@ fun OmieOrderCardItem(order: Order) {
             modifier = Modifier.padding(16.dp)
         ) {
             Text(
-                text = "Id: #${order.id.substring(0,5)}",
+                text = "Id: #${order.id.substring(0, 5)}",
                 style = MaterialTheme.typography.titleSmall
             )
             Text(
@@ -54,7 +54,6 @@ fun OmieOrderCardItem(order: Order) {
                     style = MaterialTheme.typography.labelSmall
                 )
             }
-
         }
     }
 }

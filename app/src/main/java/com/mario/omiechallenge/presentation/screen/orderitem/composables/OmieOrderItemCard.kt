@@ -1,4 +1,4 @@
-package com.mario.omiechallenge.presentation.screen.components.orderitems
+package com.mario.omiechallenge.presentation.screen.orderitem.composables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mario.omiechallenge.data.datasource.fakeOrderItems
 import com.mario.omiechallenge.domain.model.OrderItem
-import com.mario.omiechallenge.presentation.screen.components.buttons.OmieButtonDeleteItem
+import com.mario.omiechallenge.presentation.screen.core.composables.buttons.OmieButtonDeleteItem
 import com.mario.omiechallenge.util.formatedToReal
 
 @Composable

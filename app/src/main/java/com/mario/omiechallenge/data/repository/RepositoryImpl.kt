@@ -1,19 +1,19 @@
 package com.mario.omiechallenge.data.repository
 
-import com.mario.omiechallenge.data.datasource.LocalDatSource
+import com.mario.omiechallenge.data.datasource.LocalDataSource
 import com.mario.omiechallenge.domain.Repository
 import com.mario.omiechallenge.domain.model.Order
 
 class RepositoryImpl(
-    private val localDatSource: LocalDatSource
+    private val localDataSource: LocalDataSource
 ) : Repository {
 
     override fun getAllOrders(): Result<List<Order>> {
-        return localDatSource.getAllOrders()
+        return localDataSource.getAllOrders()
     }
 
-    override fun saveOrder(order: Order) {
-        localDatSource.addOrder(order)
+    override fun addOrder(order: Order) {
+        localDataSource.addOrder(order)
     }
 
 }

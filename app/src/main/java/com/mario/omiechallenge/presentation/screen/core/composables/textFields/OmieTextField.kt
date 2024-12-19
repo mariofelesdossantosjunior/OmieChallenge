@@ -1,4 +1,4 @@
-package com.mario.omiechallenge.presentation.screen.components.textFields
+package com.mario.omiechallenge.presentation.screen.core.composables.textFields
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
@@ -14,6 +14,7 @@ fun OmieTextField(
     modifier: Modifier = Modifier,
     label: String,
     value: String,
+    error: String? = null,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
     onValueChange: (String) -> Unit
@@ -25,6 +26,10 @@ fun OmieTextField(
         visualTransformation = visualTransformation,
         modifier = modifier.fillMaxWidth(),
         keyboardOptions = keyboardOptions,
-        singleLine = true
+        singleLine = true,
+        isError = !error.isNullOrEmpty(),
+        supportingText = {
+            error?.let { Text(text = it) }
+        }
     )
 }

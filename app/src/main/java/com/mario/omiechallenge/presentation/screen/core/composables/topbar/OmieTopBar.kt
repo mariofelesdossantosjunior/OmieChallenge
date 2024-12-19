@@ -1,4 +1,4 @@
-package com.mario.omiechallenge.presentation.screen.components.topbar
+package com.mario.omiechallenge.presentation.screen.core.composables.topbar
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon

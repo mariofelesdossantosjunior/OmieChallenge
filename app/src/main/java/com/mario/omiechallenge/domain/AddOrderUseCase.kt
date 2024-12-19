@@ -11,7 +11,7 @@ class AddOrderUseCase(
     operator fun invoke(
         params: Params
     ){
-        return repository.saveOrder(
+        return repository.addOrder(
             order = params.order
         )
     }

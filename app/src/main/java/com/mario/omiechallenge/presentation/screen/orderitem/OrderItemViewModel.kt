@@ -100,7 +100,12 @@ class OrderItemViewModel(
         val productQuantity = _uiState.value.productQuantity.toIntOrNull() ?: 0
         val productValue = _uiState.value.productValue.toDoubleOrNull() ?: 0.0
 
-        if (productName.isNotBlank() && productQuantity > 0 && productValue > 0) {
+        if (isValidForm(
+                productName = productName,
+                productQuantity = productQuantity,
+                productValue = productValue
+            )
+        ) {
             _uiState.update {
                 it.copy(
                     items = it.items + OrderItem(
@@ -116,6 +121,43 @@ class OrderItemViewModel(
         }
     }
 
+    private fun isValidForm(
+        productName: String,
+        productQuantity: Int,
+        productValue: Double
+    ): Boolean {
+        var isValid = true
+
+        if (productName.isBlank()) {
+            _uiState.update {
+                it.copy(
+                    productError = "Digite o nome do produto"
+                )
+            }
+            isValid = false
+        }
+
+        if (productQuantity <= 0) {
+            _uiState.update {
+                it.copy(
+                    quantityError = "Digite a quantidade do produto"
+                )
+            }
+            isValid = false
+        }
+
+        if (productValue < 0.0) {
+            _uiState.update {
+                it.copy(
+                    valueError = "Digite o valor do produto"
+                )
+            }
+            isValid = false
+        }
+
+        return isValid
+    }
+
     @VisibleForTesting
     fun cleanInputs() {
         changeProductName("")
@@ -128,14 +170,23 @@ class OrderItemViewModel(
         val clientName = _uiState.value.client
         val items = _uiState.value.items
 
-        val params = AddOrderUseCase.Params(
-            order = Order(
-                clientName = clientName,
-                items = items
-            )
-        )
+        if (clientName.isNotBlank() && items.isNotEmpty()) {
 
-        addOrderUseCase.invoke(params)
+            val params = AddOrderUseCase.Params(
+                order = Order(
+                    clientName = clientName,
+                    items = items
+                )
+            )
+            addOrderUseCase.invoke(params)
+
+        } else {
+            _uiState.update {
+                it.copy(
+                    clientError = "Digite o nome do cliente"
+                )
+            }
+        }
     }
 
     @VisibleForTesting

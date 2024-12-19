@@ -1,4 +1,4 @@
-package com.mario.omiechallenge.presentation.screen.components.orders
+package com.mario.omiechallenge.presentation.screen.order.composables
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items

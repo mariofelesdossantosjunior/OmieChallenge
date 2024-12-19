@@ -1,4 +1,4 @@
-package com.mario.omiechallenge.presentation.screen.components.indicator
+package com.mario.omiechallenge.presentation.screen.core.composables.indicator
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator

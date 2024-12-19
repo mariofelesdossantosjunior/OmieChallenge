@@ -19,9 +19,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mario.omiechallenge.R
-import com.mario.omiechallenge.presentation.screen.components.orders.OmieOrderList
-import com.mario.omiechallenge.presentation.screen.components.indicator.OmieProgressIndicator
-import com.mario.omiechallenge.presentation.screen.components.topbar.OmieTopBar
+import com.mario.omiechallenge.presentation.screen.order.composables.OmieOrderList
+import com.mario.omiechallenge.presentation.screen.core.composables.indicator.OmieProgressIndicator
+import com.mario.omiechallenge.presentation.screen.core.composables.topbar.OmieTopBar
 import com.mario.omiechallenge.presentation.screen.theme.Colors
 
 @Composable

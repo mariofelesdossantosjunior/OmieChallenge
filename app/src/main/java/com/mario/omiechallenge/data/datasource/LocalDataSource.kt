@@ -2,7 +2,7 @@ package com.mario.omiechallenge.data.datasource
 
 import com.mario.omiechallenge.domain.model.Order
 
-class LocalDatSource {
+class LocalDataSource {
 
     private val orders = mutableListOf<Order>()
 
