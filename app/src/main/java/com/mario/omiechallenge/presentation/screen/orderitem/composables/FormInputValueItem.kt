@@ -40,7 +40,6 @@ fun FormInputValueItem(
         modifier = modifier
             .fillMaxWidth()
             .background(Color.White)
-            .padding(16.dp)
     ) {
 
         OmieTextField(
@@ -101,7 +100,6 @@ fun FormInputValueItem(
         }
 
         OmieButton(
-            modifier = Modifier.padding(16.dp),
             text = stringResource(R.string.add),
             onClick = {
                 onEvent(

@@ -19,6 +19,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mario.omiechallenge.R
+import com.mario.omiechallenge.data.datasource.fakeOrders
 import com.mario.omiechallenge.domain.model.Order
 import com.mario.omiechallenge.presentation.screen.order.composables.OmieOrderList
 import com.mario.omiechallenge.presentation.screen.core.composables.indicator.OmieProgressIndicator
@@ -70,7 +71,7 @@ fun OrderScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .padding(top = 25.dp)
+                .padding(8.dp)
         ) {
 
             if (uiState.isLoading) {
@@ -89,7 +90,11 @@ fun OrderScreen(
 @Composable
 private fun OrderScreenPreview() {
     OrderScreen(
-        uiState = OrderUIState(),
+        uiState = OrderUIState(
+            orders = fakeOrders,
+            isLoading = false,
+            isFailure = false
+        ),
         navigateToAddOrder = {},
         navigateToEditOrderItem = {}
     )

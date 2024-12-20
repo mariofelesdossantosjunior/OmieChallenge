@@ -64,7 +64,9 @@ fun OrderItemScreen(
         },
         content = { paddingValues ->
             Column(
-                modifier = Modifier.padding(paddingValues)
+                modifier = Modifier
+                    .padding(paddingValues)
+                    .padding(16.dp)
             ) {
                 FormInputValueItem(
                     uiState = uiState,

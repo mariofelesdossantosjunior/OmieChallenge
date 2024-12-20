@@ -27,7 +27,6 @@ fun OmieOrderItemCard(
 ) {
     Card(
         modifier = Modifier
-            .padding(8.dp)
             .fillMaxWidth(),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 4.dp

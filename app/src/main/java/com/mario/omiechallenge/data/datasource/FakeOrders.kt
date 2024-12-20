@@ -6,7 +6,7 @@ import com.mario.omiechallenge.domain.model.OrderItem
 val fakeOrders = listOf(
     Order(
         id = "123456789",
-        date = "2021-09-01",
+        date = "01/12/2024",
         clientName = "Mario",
         items = listOf(
             OrderItem(
@@ -27,7 +27,7 @@ val fakeOrders = listOf(
     ),
     Order(
         id = "3456789",
-        date = "2021-09-02",
+        date = "02/12/2024",
         clientName = "Jose",
         items = listOf(
             OrderItem(
