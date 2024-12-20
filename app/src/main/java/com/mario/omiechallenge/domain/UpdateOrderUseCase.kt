@@ -2,7 +2,7 @@ package com.mario.omiechallenge.domain
 
 import com.mario.omiechallenge.domain.model.Order
 
-class AddOrderUseCase(
+class UpdateOrderUseCase(
     private val repository: Repository
 ) {
 
@@ -11,7 +11,7 @@ class AddOrderUseCase(
     operator fun invoke(
         params: Params
     ){
-        return repository.add(
+        return repository.update(
             order = params.order
         )
     }

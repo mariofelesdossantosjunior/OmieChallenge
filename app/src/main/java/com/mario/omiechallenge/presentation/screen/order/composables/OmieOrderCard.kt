@@ -1,5 +1,6 @@
 package com.mario.omiechallenge.presentation.screen.order.composables
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,11 +22,17 @@ import com.mario.omiechallenge.util.formatedDate
 import com.mario.omiechallenge.util.formatedToReal
 
 @Composable
-fun OmieOrderCardItem(order: Order) {
+fun OmieOrderCardItem(
+    order: Order,
+    onSelect: (Order) -> Unit = {}
+) {
     Card(
         modifier = Modifier
             .padding(8.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable {
+                onSelect(order)
+            },
         elevation = CardDefaults.cardElevation(
             defaultElevation = 4.dp
         )
@@ -61,7 +68,7 @@ fun OmieOrderCardItem(order: Order) {
                         .weight(1f)
                         .align(Alignment.Bottom),
                     textAlign = TextAlign.End,
-                    text = order.date.formatedDate(),
+                    text = order.date,
                     style = MaterialTheme.typography.labelSmall
                 )
             }

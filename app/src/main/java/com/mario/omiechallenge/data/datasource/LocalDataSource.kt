@@ -14,4 +14,8 @@ class LocalDataSource {
         orders.add(order)
     }
 
+    fun updateOrder(order: Order) {
+        val indexOf = orders.indexOfFirst { it.id == order.id }
+        orders[indexOf] = order
+    }
 }

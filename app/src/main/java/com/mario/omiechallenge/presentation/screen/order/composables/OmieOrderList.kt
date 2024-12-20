@@ -8,10 +8,16 @@ import com.mario.omiechallenge.data.datasource.fakeOrders
 import com.mario.omiechallenge.domain.model.Order
 
 @Composable
-fun OmieOrderList(orders: List<Order>) {
+fun OmieOrderList(
+    orders: List<Order>,
+    onSelect: (Order) -> Unit = {}
+) {
     LazyColumn {
         items(orders) { order ->
-            OmieOrderCardItem(order = order)
+            OmieOrderCardItem(
+                order = order,
+                onSelect = onSelect
+            )
         }
     }
 }

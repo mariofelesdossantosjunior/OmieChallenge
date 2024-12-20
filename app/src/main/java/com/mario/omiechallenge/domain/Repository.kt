@@ -4,5 +4,6 @@ import com.mario.omiechallenge.domain.model.Order
 
 interface Repository {
     fun getAllOrders(): Result<List<Order>>
-    fun addOrder(order: Order)
+    fun add(order: Order)
+    fun update(order: Order)
 }

@@ -19,6 +19,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mario.omiechallenge.R
+import com.mario.omiechallenge.domain.model.Order
 import com.mario.omiechallenge.presentation.screen.order.composables.OmieOrderList
 import com.mario.omiechallenge.presentation.screen.core.composables.indicator.OmieProgressIndicator
 import com.mario.omiechallenge.presentation.screen.core.composables.topbar.OmieTopBar
@@ -27,7 +28,8 @@ import com.mario.omiechallenge.presentation.screen.theme.Colors
 @Composable
 fun OrderScreen(
     uiState: OrderUIState,
-    navigateToAddOrder: () -> Unit
+    navigateToAddOrder: () -> Unit,
+    navigateToEditOrderItem: (Order) -> Unit
 ) {
     val snackBarHostState = remember { SnackbarHostState() }
 
@@ -76,7 +78,8 @@ fun OrderScreen(
             }
 
             OmieOrderList(
-                orders = uiState.orders
+                orders = uiState.orders,
+                onSelect = navigateToEditOrderItem
             )
         }
     }
@@ -87,6 +90,7 @@ fun OrderScreen(
 private fun OrderScreenPreview() {
     OrderScreen(
         uiState = OrderUIState(),
-        navigateToAddOrder = {}
+        navigateToAddOrder = {},
+        navigateToEditOrderItem = {}
     )
 }

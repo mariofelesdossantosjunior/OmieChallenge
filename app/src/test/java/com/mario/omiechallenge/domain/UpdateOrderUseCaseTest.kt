@@ -9,7 +9,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
-class AddOrderUseCaseTest {
+class UpdateOrderUseCaseTest {
 
     @MockK
     lateinit var repository: Repository
@@ -25,18 +25,20 @@ class AddOrderUseCaseTest {
     @Test
     fun `SHOULD call correct functions WHEN invoke is called`() = runBlocking {
         every {
-            repository.add(any())
+            repository.update(any())
         } returns Unit
 
-        val fakeOrder = fakeOrders.first()
-        val params = AddOrderUseCase.Params(fakeOrder)
+        val fakeOrder = fakeOrders.first().copy(
+            clientName = "New Name"
+        )
+        val params = UpdateOrderUseCase.Params(fakeOrder)
 
-        AddOrderUseCase(
+        UpdateOrderUseCase(
             repository
         ).invoke(params)
 
         verify {
-            repository.add(any())
+            repository.update(any())
         }
     }
 }

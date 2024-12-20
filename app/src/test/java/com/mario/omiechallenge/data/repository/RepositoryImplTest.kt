@@ -47,10 +47,24 @@ class RepositoryImplTest {
             dataSource.addOrder(any())
         } returns Unit
 
-        instantiateRepository().addOrder(fakeOrders.first())
+        instantiateRepository().add(fakeOrders.first())
 
         verify {
             dataSource.addOrder(any())
+        }
+    }
+
+    @Test
+    fun `SHOULD invoke data source WHEN updateOrder invoke`() {
+
+        every {
+            dataSource.updateOrder(any())
+        } returns Unit
+
+        instantiateRepository().update(fakeOrders.first())
+
+        verify {
+            dataSource.updateOrder(any())
         }
     }
 }

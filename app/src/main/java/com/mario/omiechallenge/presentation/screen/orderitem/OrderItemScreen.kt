@@ -18,6 +18,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mario.omiechallenge.R
 import com.mario.omiechallenge.data.datasource.fakeOrderItems
+import com.mario.omiechallenge.domain.model.Order
+import com.mario.omiechallenge.domain.model.OrderItem
 import com.mario.omiechallenge.presentation.screen.core.composables.topbar.OmieTopBar
 import com.mario.omiechallenge.presentation.screen.orderitem.composables.FormInputValueItem
 import com.mario.omiechallenge.presentation.screen.orderitem.composables.OmieBottomBarOrderItems
@@ -28,7 +30,8 @@ import com.mario.omiechallenge.presentation.screen.theme.Colors
 fun OrderItemScreen(
     uiState: OrderItemUIState,
     onEvent: (OrderItemUIEvent) -> Unit,
-    goBackToOrders: () -> Unit
+    goBackToOrders: () -> Unit,
+    orderId: String?
 ) {
     val snackBarHostState = remember { SnackbarHostState() }
 
@@ -37,6 +40,14 @@ fun OrderItemScreen(
         if (uiState.isFailure) {
             snackBarHostState.showSnackbar(
                 message = messageFailure
+            )
+        }
+    }
+
+    LaunchedEffect(orderId) {
+        if(!orderId.isNullOrEmpty()) {
+            onEvent(
+                OrderItemUIEvent.LoadOrderItem(orderId)
             )
         }
     }
@@ -92,6 +103,7 @@ private fun OrderScreenPreview() {
             items = fakeOrderItems.toMutableList()
         ),
         onEvent = {},
-        goBackToOrders = {}
+        goBackToOrders = {},
+        orderId = ""
     )
 }

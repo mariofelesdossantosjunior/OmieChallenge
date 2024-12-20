@@ -15,7 +15,9 @@ val presentationModule = module {
 
     viewModel {
         OrderItemViewModel(
-            addOrderUseCase = get()
+            getAllOrdersUseCase = get(),
+            addOrderUseCase = get(),
+            updateOrderUseCase = get()
         )
     }
 

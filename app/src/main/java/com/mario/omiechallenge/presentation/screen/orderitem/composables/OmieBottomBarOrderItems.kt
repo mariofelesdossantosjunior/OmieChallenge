@@ -64,7 +64,7 @@ fun OmieBottomBarOrderItems(
                 text = stringResource(R.string.save),
                 color = Colors.GreenDark,
                 onClick = {
-                    onEvent(OrderItemUIEvent.OnSaveOrder)
+                    onEvent(OrderItemUIEvent.OnSaveOrUpdateOrder)
                     goBackToOrders()
                 }
             )

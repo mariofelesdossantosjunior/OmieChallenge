@@ -2,12 +2,11 @@ package com.mario.omiechallenge.data.datasource
 
 import com.mario.omiechallenge.domain.model.Order
 import com.mario.omiechallenge.domain.model.OrderItem
-import java.util.Date
 
 val fakeOrders = listOf(
     Order(
         id = "123456789",
-        date = Date(),
+        date = "2021-09-01",
         clientName = "Mario",
         items = listOf(
             OrderItem(
@@ -28,7 +27,7 @@ val fakeOrders = listOf(
     ),
     Order(
         id = "3456789",
-        date = Date(),
+        date = "2021-09-02",
         clientName = "Jose",
         items = listOf(
             OrderItem(

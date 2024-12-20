@@ -9,5 +9,6 @@ sealed class OrderItemUIEvent {
     data class OnProductValueChanged(val productValue: String) : OrderItemUIEvent()
     data object OnAddItem : OrderItemUIEvent()
     data class OnDeleteItem(val item: OrderItem) : OrderItemUIEvent()
-    data object OnSaveOrder : OrderItemUIEvent()
+    data object OnSaveOrUpdateOrder : OrderItemUIEvent()
+    data class LoadOrderItem(val orderId: String) : OrderItemUIEvent()
 }

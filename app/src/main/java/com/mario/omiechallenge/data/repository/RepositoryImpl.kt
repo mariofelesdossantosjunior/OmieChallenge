@@ -12,8 +12,12 @@ class RepositoryImpl(
         return localDataSource.getAllOrders()
     }
 
-    override fun addOrder(order: Order) {
+    override fun add(order: Order) {
         localDataSource.addOrder(order)
+    }
+
+    override fun update(order: Order) {
+        localDataSource.updateOrder(order)
     }
 
 }

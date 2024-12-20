@@ -3,6 +3,7 @@ package com.mario.omiechallenge.presentation.screen.orderitem
 import com.mario.omiechallenge.domain.model.OrderItem
 
 data class OrderItemUIState(
+    val id: String? = null,
     val client: String = "",
     val clientError: String = "",
     val productName: String = "",
