@@ -10,5 +10,4 @@ Requisitos:
 
  📷 ![image](https://github.com/user-attachments/assets/c81e197b-dc55-4c7f-9b4b-e5a9ae0c5ef3)
 
- 🎥 [screencast-Genymotion-2024-12-20_12.42.03.913.webm](https://github.com/user-attachments/assets/eedb3a5c-44de-4f42-94bf-07408c84f400)
-
+ 🎥 [video](https://github.com/user-attachments/assets/9cb333a8-2fc8-407f-987b-11347d06bbd6)
