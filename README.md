@@ -10,7 +10,7 @@ Requisitos:
 https://github.com/user-attachments/assets/891e1387-df20-43fa-9d6a-159f88fbad1e
 
 ![image](https://github.com/user-attachments/assets/65ea43a0-14ac-4b83-ab67-cb5196b4fe8e)
-
 ![image](https://github.com/user-attachments/assets/c81e197b-dc55-4c7f-9b4b-e5a9ae0c5ef3)
+
 
 
