@@ -10,7 +10,7 @@ data class OrderItemUIState(
     val productError: String = "",
     val productQuantity: String = "",
     val quantityError: String = "",
-    val productValue: String = "",
+    val productPrice: String = "",
     val valueError: String = "",
     val items: List<OrderItem> = emptyList(),
     val isLoading: Boolean = false,

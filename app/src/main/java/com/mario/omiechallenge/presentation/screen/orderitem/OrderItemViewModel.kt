@@ -31,19 +31,19 @@ class OrderItemViewModel(
 
             is OrderItemUIEvent.OnProductNameChanged -> {
                 changeProductName(
-                    product = event.productName
+                    product = event.name
                 )
             }
 
             is OrderItemUIEvent.OnProductQuantityChanged -> {
                 changeProductQuantity(
-                    quantity = event.productQuantity
+                    quantity = event.quantity
                 )
             }
 
-            is OrderItemUIEvent.OnProductValueChanged -> {
-                changeProductValue(
-                    value = event.productValue
+            is OrderItemUIEvent.OnProductPriceChanged -> {
+                changeProductPrice(
+                    value = event.price
                 )
             }
 
@@ -93,10 +93,10 @@ class OrderItemViewModel(
     }
 
     @VisibleForTesting
-    fun changeProductValue(value: String) {
+    fun changeProductPrice(value: String) {
         _uiState.update {
             it.copy(
-                productValue = value
+                productPrice = value
             )
         }
     }
@@ -105,12 +105,12 @@ class OrderItemViewModel(
     fun addItem() {
         val productName = _uiState.value.productName
         val productQuantity = _uiState.value.productQuantity.toIntOrNull() ?: 0
-        val productValue = _uiState.value.productValue.toDoubleOrNull() ?: 0.0
+        val productValue = _uiState.value.productPrice.toDoubleOrNull() ?: 0.0
 
         if (isValidForm(
-                productName = productName,
-                productQuantity = productQuantity,
-                productValue = productValue
+                name = productName,
+                quantity = productQuantity,
+                price = productValue
             )
         ) {
             _uiState.update {
@@ -128,14 +128,15 @@ class OrderItemViewModel(
         }
     }
 
-    private fun isValidForm(
-        productName: String,
-        productQuantity: Int,
-        productValue: Double
+    @VisibleForTesting
+    fun isValidForm(
+        name: String,
+        quantity: Int,
+        price: Double
     ): Boolean {
         var isValid = true
 
-        if (productName.isBlank()) {
+        if (name.isBlank()) {
             _uiState.update {
                 it.copy(
                     productError = "Digite o nome do produto"
@@ -144,7 +145,7 @@ class OrderItemViewModel(
             isValid = false
         }
 
-        if (productQuantity <= 0) {
+        if (quantity <= 0) {
             _uiState.update {
                 it.copy(
                     quantityError = "Digite a quantidade do produto"
@@ -153,7 +154,7 @@ class OrderItemViewModel(
             isValid = false
         }
 
-        if (productValue < 0.0) {
+        if (price <= 0.0) {
             _uiState.update {
                 it.copy(
                     valueError = "Digite o valor do produto"
@@ -169,7 +170,7 @@ class OrderItemViewModel(
     fun cleanInputs() {
         changeProductName("")
         changeProductQuantity("")
-        changeProductValue("")
+        changeProductPrice("")
     }
 
     @VisibleForTesting

@@ -9,7 +9,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.mario.omiechallenge.domain.model.Order
 import com.mario.omiechallenge.presentation.route.OrderItemsRoute
 import com.mario.omiechallenge.presentation.route.OrderRoute
 import com.mario.omiechallenge.presentation.screen.order.OrderScreen
@@ -37,6 +36,7 @@ class MainActivity : ComponentActivity() {
 
                         OrderScreen(
                             uiState = uiState,
+                            onEvent = viewModel::onEvent,
                             navigateToAddOrder = {
                                 navController.navigate(
                                     route = OrderItemsRoute()

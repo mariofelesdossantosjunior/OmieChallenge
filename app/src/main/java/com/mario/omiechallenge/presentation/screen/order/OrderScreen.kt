@@ -21,18 +21,23 @@ import androidx.compose.ui.unit.dp
 import com.mario.omiechallenge.R
 import com.mario.omiechallenge.data.datasource.fakeOrders
 import com.mario.omiechallenge.domain.model.Order
-import com.mario.omiechallenge.presentation.screen.order.composables.OmieOrderList
 import com.mario.omiechallenge.presentation.screen.core.composables.indicator.OmieProgressIndicator
 import com.mario.omiechallenge.presentation.screen.core.composables.topbar.OmieTopBar
+import com.mario.omiechallenge.presentation.screen.order.composables.OmieOrderList
 import com.mario.omiechallenge.presentation.screen.theme.Colors
 
 @Composable
 fun OrderScreen(
     uiState: OrderUIState,
+    onEvent: (OrderUIEvent) -> Unit,
     navigateToAddOrder: () -> Unit,
     navigateToEditOrderItem: (Order) -> Unit
 ) {
     val snackBarHostState = remember { SnackbarHostState() }
+
+    LaunchedEffect(key1 = true) {
+        onEvent(OrderUIEvent.LoadOrders)
+    }
 
     val messageFailure = stringResource(R.string.message_failure)
     LaunchedEffect(uiState.isFailure) {
@@ -95,6 +100,7 @@ private fun OrderScreenPreview() {
             isLoading = false,
             isFailure = false
         ),
+        onEvent = {},
         navigateToAddOrder = {},
         navigateToEditOrderItem = {}
     )

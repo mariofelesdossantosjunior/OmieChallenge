@@ -5,10 +5,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
@@ -77,7 +75,7 @@ fun FormInputValueItem(
                 onValueChange = {
                     onEvent(
                         OrderItemUIEvent.OnProductQuantityChanged(
-                            productQuantity = it
+                            quantity = it
                         )
                     )
                 }
@@ -86,12 +84,12 @@ fun FormInputValueItem(
             OmieTextField(
                 modifier = Modifier.weight(1f),
                 label = stringResource(R.string.unit_value),
-                value = uiState.productValue,
+                value = uiState.productPrice,
                 error = uiState.valueError,
                 onValueChange = {
                     onEvent(
-                        OrderItemUIEvent.OnProductValueChanged(
-                            productValue = it
+                        OrderItemUIEvent.OnProductPriceChanged(
+                            price = it
                         )
                     )
                 },

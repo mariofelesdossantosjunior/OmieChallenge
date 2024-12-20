@@ -15,8 +15,12 @@ class OrderViewModel(
     private val _uiState = MutableStateFlow(OrderUIState())
     val uiState: StateFlow<OrderUIState> = _uiState.asStateFlow()
 
-    init {
-        loadOrders()
+    fun onEvent(event: OrderUIEvent) {
+        when (event) {
+            is OrderUIEvent.LoadOrders -> {
+                loadOrders()
+            }
+        }
     }
 
     @VisibleForTesting
