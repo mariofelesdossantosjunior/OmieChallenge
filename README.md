@@ -10,7 +10,7 @@
 * Compose
 * Koin
 * Navigator
-* Clear Arch
+* Clear Arch/Code
 * MVVM/MVI
 
 ## UIs
