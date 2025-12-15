@@ -13,6 +13,7 @@ navigation = "2.9.6"
 kotlin-serialization = "1.7.3"
 koin-bom = "4.1.0-Beta1"
 coroutines = "1.9.0"
+sonar = "7.2.0.6526"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -47,6 +48,7 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+sonar-qube = { id = "org.sonarqube", version.ref = "sonar" }
 
 [bundles]
 koin = [

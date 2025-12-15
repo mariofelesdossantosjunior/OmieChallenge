@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.sonar.qube)
 }
 
 android {
@@ -36,6 +37,30 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "omiechallenge")
+        property("sonar.projectName", "omiechallenge")
+        property("sonar.projectVersion", "1.0.0")
+
+        property("sonar.host.url", "http://localhost:9000")
+        property("sonar.token", System.getenv("SONAR_TOKEN"))
+
+        property(
+            "sonar.sources",
+            "/home/mario/AndroidStudioProjects/OmieChallenge/app/src/main/java"
+        )
+
+        property(
+            "sonar.tests",
+            "/home/mario/AndroidStudioProjects/OmieChallenge/app/src/test/java"
+        )
+
+        property("sonar.sourceEncoding", "UTF-8")
+        property("sonar.java.source", "1.8")
     }
 }
 
