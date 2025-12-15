@@ -3,11 +3,12 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.sonar.qube)
 }
 
 android {
     namespace = "com.mario.omiechallenge"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.mario.omiechallenge"
@@ -39,6 +40,30 @@ android {
     }
 }
 
+sonar {
+    properties {
+        property("sonar.projectKey", "omiechallenge")
+        property("sonar.projectName", "omiechallenge")
+        property("sonar.projectVersion", "1.0.0")
+
+        property("sonar.host.url", "http://localhost:9000")
+        property("sonar.token", System.getenv("SONAR_TOKEN"))
+
+        property(
+            "sonar.sources",
+            "/home/mario/AndroidStudioProjects/OmieChallenge/app/src/main/java"
+        )
+
+        property(
+            "sonar.tests",
+            "/home/mario/AndroidStudioProjects/OmieChallenge/app/src/test/java"
+        )
+
+        property("sonar.sourceEncoding", "UTF-8")
+        property("sonar.java.source", "1.8")
+    }
+}
+
 dependencies {
 
     implementation(libs.navigation.compose)
@@ -55,6 +80,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.material.icons.extended)
 
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
